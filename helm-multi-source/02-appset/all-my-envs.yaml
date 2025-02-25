@@ -9,6 +9,14 @@ spec:
   generators:
   - list:
       elements:
+      - env: integration-gpu
+        region: us
+        type: non-prod
+        version: qa
+      - env: integration-non-gpu
+        region: us
+        type: non-prod
+        version: qa
       - env: qa
         region: us
         type: non-prod
@@ -51,8 +59,6 @@ spec:
             - $values/helm-multi-source/my-values/env-type/{{.type}}-values.yaml
             - $values/helm-multi-source/my-values/regions/{{.region}}-values.yaml
             - $values/helm-multi-source/my-values/envs/{{.env}}-values.yaml
-            - $values/helm-multi-source/my-values/envs/integration-gpu-values.yaml
-            - $values/helm-multi-source/my-values/envs/integration-non-gpu-values.yaml
         - repoURL: 'https://github.com/basoyan7/gitops-cert-level-3-examples.git'
           targetRevision: HEAD
           ref: values
